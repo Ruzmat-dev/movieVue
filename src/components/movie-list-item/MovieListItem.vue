@@ -1,7 +1,8 @@
 <template>
-    <li class="list-group-item d-flex justify-content-between">
-        <span class="list-group-item-label">Ruzmat</span>
-        <input type="number" class="list-group-item-input" defaultValue="811">
+    <li class="list-group-item d-flex justify-content-between"
+     :class="[{like: movie.like},{favourite: movie.favourite}]">
+        <span class="list-group-item-label">{{ movie.name }}</span>
+        <input type="number" class="list-group-item-input" :value="movie.viewers">
         <div class="d-flex justify-content-center aligin-items-center">
             <button type="button" class="btn-cookie btn-sm">
                 <i class="fas fa-cookie"></i>
@@ -16,7 +17,12 @@
 </template>
 <script>
 export default {
-
+    props:{
+        movie: {
+            type: Object,
+            required:true
+        }
+    }
 }
 </script>
 <style scoped>
