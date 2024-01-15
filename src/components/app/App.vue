@@ -30,18 +30,21 @@ export default {
     return {
       movies: [
         {
+          id:1,
           name: 'Ruzmat',
           viewers: 811,
           favourite: false,
           like: true
         },
         {
+          id:2,
           name: 'Empier of osman',
           viewers: 411,
           favourite: true,
           like: true
         },
         {
+          id:3,
           name: 'Ertugrul',
           viewers: 711,
           favourite: true,

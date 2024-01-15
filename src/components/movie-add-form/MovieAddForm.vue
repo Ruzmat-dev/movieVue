@@ -21,6 +21,7 @@ export default {
     methods: {
         addMovie() {
             const newMovie = {
+                id: Date.now(),
                 name: this.name,
                 viewers: this.viewers,
                 favourite: false,
