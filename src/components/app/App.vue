@@ -1,12 +1,12 @@
 <template>
   <div class="app font-monospace">
     <div class="content">
-      <AppInfo/>
+      <AppInfo :allMoviesCount="movies.length" :favouriteMoviesCount="movies.filter(c => c.favourite).length"/>
       <div class="search-panel">
           <SearchPanel/>
           <AppFilter/>
       </div>
-      <MovieList/>
+      <MovieList :movies="movies"/>
       <MovieAddForm/>
     </div>
   </div>
@@ -25,6 +25,30 @@
       AppFilter,
       MovieList,
       MovieAddForm
+    },
+    data(){
+        return{
+            movies: [
+                {
+                    name:'Ruzmat',
+                    viewers:811,
+                    favourite:false,
+                    like:true
+                },
+                {
+                    name:'Empier of osman',
+                    viewers:411,
+                    favourite:true,
+                    like:true
+                },
+                {
+                    name:'Ertugrul',
+                    viewers:711,
+                    favourite:true,
+                    like:false
+                }
+            ]
+        }
     }
   }
 </script>
