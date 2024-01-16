@@ -1,8 +1,6 @@
 <template >
     <div class="btn-group">
-        <button class="btn" type="button" @click="filterHeander('all')" :class="[filter === 'all' ? 'btn-dark' : 'btn-outline-dark']">Barcha kinolar</button>
-        <button class="btn" type="button" @click="filterHeander('popular')" :class="[filter === 'popular' ? 'btn-dark' : 'btn-outline-dark']">Mashhur kinolar</button>
-        <button class="btn" type="button" @click="filterHeander('mostViwers')" :class="[filter === 'mostViwers' ? 'btn-dark' : 'btn-outline-dark']">Eng kop korilgan kinolar</button>
+        <button v-for="btn in filterButtons" :key="btn.name" class="btn" :class="[filter == btn.name ? 'btn-dark' : 'btn-outline-dark']" @click="filterHeander(btn.name)">{{ btn.title }}</button>
     </div>
 </template>
 <script>
@@ -19,6 +17,23 @@ export default {
     },
     data(){
         return{
+            filterButtons: [
+                {
+                    id:1,
+                    title: "Barcha kinolar",
+                    name: "all"
+                },
+                {
+                    id:2,
+                    title: "Mashhur kinolar",
+                    name: "popular"
+                },
+                {
+                    id:3,
+                    title: "Eng kop korilgan kinolar",
+                    name: "mostViwers"
+                }
+            ],
             filter: 'all'
         }
     },
