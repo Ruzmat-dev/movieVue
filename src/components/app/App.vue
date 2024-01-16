@@ -6,7 +6,7 @@
         <SearchPanel />
         <AppFilter />
       </div>
-      <MovieList :movies="movies" @onToggle="onToggleHandler"/>
+      <MovieList :movies="movies" @onToggle="onToggleHandler" @onRemove="onRemoveHendler"/>
       <MovieAddForm @createMovie="createMovie" />
     </div>
   </div>
@@ -63,8 +63,10 @@ export default {
           return{...item, [prop]: !item[prop] }
         }
         return item
-      })
-      
+      }) 
+    },
+    onRemoveHendler(id){
+      this.movies = this.movies.filter(c => c.id !== id)
     }
   }
 }
