@@ -6,7 +6,7 @@
                 @input="name = $event.target.value">
             <input type="number" class="form-control new-movie-label" placeholder="Nechi marotaba kor`ilgan?"
                 :value="viewers" @input="viewers = $event.target.value">
-            <button class="btn btn-outline-dark" type="submit" @click="addMovie">Qo`shish</button>
+            <PrimeryButton class="btn-outline-dark" type="submit" @click="addMovie">Qo`shish</PrimeryButton>
         </form>
     </div>
 </template>

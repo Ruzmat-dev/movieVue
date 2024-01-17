@@ -1,11 +1,12 @@
 <template>
-    <div class="app-info">
+    <Box>
         <p class="fs-3 text-uppercase">Barcha kinolar soni:{{ allMoviesCount }}</p>
         <p class="fs-3 text-uppercase">Ko`rilgan kinolar soni:{{ favouriteMoviesCount }}</p>
-    </div>
+    </Box>
 </template>
 
 <script>
+
 export default {
     props: {
         allMoviesCount: {
@@ -16,7 +17,7 @@ export default {
             type: Number,
             required: true
         }
-    }
+    },
 }
 </script>
 
