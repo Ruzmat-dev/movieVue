@@ -20,7 +20,6 @@ export default {
         addMovie() {
             if(!this.name || !this.viewers) return
             const newMovie = {
-                id: Date.now(),
                 name: this.name,
                 viewers: this.viewers,
                 favourite: false,
