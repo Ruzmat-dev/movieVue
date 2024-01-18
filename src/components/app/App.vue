@@ -4,7 +4,7 @@
       <AppInfo :allMoviesCount="movies.length" :favouriteMoviesCount="movies.filter(c => c.favourite).length" />
       <div class="search-panel">
         <SearchPanel :updateTermHandler="updateTermHandler"/>
-        <AppFilter :updateFilterHeandler="updateFilterHeandler" :filterName="filterName"/>
+        <AppFilter :updateFilterHeandler="updateFilterHeandler" />
       </div>
       <MovieList :movies="onFilterHendler(onSearchHendler(movies, term), filter)" @onToggle="onToggleHandler" @onRemove="onRemoveHendler"/>
       <MovieAddForm @createMovie="createMovie" />
@@ -18,6 +18,7 @@ import SearchPanel from '@/components/search-panel/SearchPanel.vue'
 import AppFilter from '@/components/app-filter/AppFilter.vue'
 import MovieList from '@/components/movie-list/MovieList.vue'
 import MovieAddForm from "@/components/movie-add-form/MovieAddForm.vue"
+import axios from "axios"
 export default {
   components: {
     AppInfo,
@@ -28,29 +29,7 @@ export default {
   },
   data() {
     return {
-      movies: [
-        {
-          name: 'Ruzmat',
-          viewers: 811,
-          favourite: false,
-          like: true,
-          id:1,
-        },
-        {
-          name: 'Empier of osman',
-          viewers: 411,
-          favourite: true,
-          like: true,
-          id:2,
-        },
-        {
-          name: 'Ertugrul',
-          viewers: 711,
-          favourite: true,
-          like: false,
-          id:3,
-        }
-      ],
+      movies: [],
       term: '',
       filter:'all'
     }
@@ -91,7 +70,25 @@ export default {
     },
     updateFilterHeandler(filter){
       this.filter = filter
+    },
+    async fechData(){
+      try {
+      const  res = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+      const newMovies = res.data.map(el => ({
+        id: el.id,
+        name: el.title,
+        like:false,
+        favourite:false,
+        viewers: el.id * 10
+      }))
+      this.movies = newMovies
+      } catch (error) {
+        console.log(error);
+      }
     }
+  },
+  mounted() {
+    this.fechData()
   }
 }
 </script>
