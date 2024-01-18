@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "PrimeryButtonVue"
+  name: "PrimeryButton"
 }
 </script>
 <style>

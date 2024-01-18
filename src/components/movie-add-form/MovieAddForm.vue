@@ -2,10 +2,8 @@
     <div class="movie-add-form" @submit.prevent>
         <h3>Yangi kino qoshish</h3>
         <form class="add-form d-flex">
-            <input type="text" class="form-control new-movie-label" placeholder="Qanday kino?" :value="name"
-                @input="name = $event.target.value">
-            <input type="number" class="form-control new-movie-label" placeholder="Nechi marotaba kor`ilgan?"
-                :value="viewers" @input="viewers = $event.target.value">
+            <Input class="new-movie-label" placeholder="Qanday kino?" v-model="name"/>
+            <Input type="number" class="new-movie-label" placeholder="Nechi marotaba kor`ilgan?" v-model="viewers"/>
             <PrimeryButton class="btn-outline-dark" type="submit" @click="addMovie">Qo`shish</PrimeryButton>
         </form>
     </div>

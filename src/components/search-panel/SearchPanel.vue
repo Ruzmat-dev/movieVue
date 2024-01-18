@@ -1,8 +1,11 @@
 <template>
-    <input type="text" class="form-control search-input" placeholder="Kinolarni qidirish" :value="term" @input="changeHandler"/>
+    <Input class="search-input" placeholder="Kinolarni qidirish" v-model="term" @input="changeHandler"/>
 </template>
 
 <script>
+import Input from '@/ui-components/Input.vue';
+
+
 export default {
     props: {
         updateTermHandler: {
@@ -20,7 +23,8 @@ export default {
             this.term = e.target.value;
             this.updateTermHandler(this.term);
         }
-    }
+    },
+    components: { Input, Input }
 };
 </script>
 
